@@ -12,6 +12,14 @@ const getAllBanks = (req: Request, res: Response): Response => {
 
 const getBankByName = (req: Request, res: Response): void => {
   const { key } = req.query;
+
+  if (!key) {
+    res
+      .status(400)
+      .json(
+        new MonoResponse(400, 'Error. You must provide a key to filter by', [])
+      );
+  }
   const regex = new RegExp(`${key}`, 'ig');
 
   // filter by search query
