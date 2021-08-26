@@ -1,3 +1,3 @@
 export interface IConfig {
-    API_URL?: string
+  API_URL?: string;
 }
