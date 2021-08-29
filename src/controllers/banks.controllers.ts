@@ -7,17 +7,28 @@ import {
 } from './banks.helpers';
 
 const getAllBanks = (req: Request, res: Response): Response => {
-  return res
-    .status(200)
-    .json(
-      new MonoResponse(200, 'Successfully retrieved all banks', banksWithLogos)
-    );
+  try {
+    return res
+      .status(200)
+      .json(
+        new MonoResponse(200, 'Successfully retrieved all banks', banksWithLogos)
+      );
+  } catch (error) {
+    console.log(error)
+    throw new Error("Sorry, something went wrong");
+  }
+
 };
 
 const getBanksByName = (req: Request, res: Response): void => {
-  const key = req?.query?.key as string;
-  getResponseIfNoKeyProvided(res, key);
-  getFilteredBanksResponse(res, key);
+  try {
+    const key = req?.query?.key as string;
+    getResponseIfNoKeyProvided(res, key);
+    getFilteredBanksResponse(res, key);
+  } catch (error) {
+    console.log(error)
+    throw new Error("Sorry, something went wrong");
+  }
 };
 
 export { getAllBanks, getBanksByName };
