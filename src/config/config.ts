@@ -4,7 +4,9 @@ const CONFIG = {
   development: {
     API_URL: process.env.API_URL
   },
-  production: {}
+  production: {
+    API_URL: process.env.API_URL
+  }
 };
 
 const environment = process.env.NODE_ENV;
