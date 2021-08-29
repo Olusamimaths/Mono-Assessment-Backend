@@ -1,6 +1,5 @@
 import banks from '../data/banks.json';
 import { config } from '../config/config';
-console.log(config);
 
 const addImgUrlToBanks = (
   banks: { id: string; code: string; name: string }[]
